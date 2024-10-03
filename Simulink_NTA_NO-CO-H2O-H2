@@ -1,0 +1,162 @@
+%%%%%%%%%%%%REACTOR FEEDING COMPOSITION%%%%%%%%%%%%%%%
+
+function y = fcn(C,t)
+%function y = fcn(C,t)
+
+%desoprtion curve 6000ppm \ NO-CO-H2O-H2 reaction same feeding. (change H2/CO)
+
+N_spatial = 10;
+y = zeros(N_spatial,7);
+
+y(1:2,1) = C(end,1);%initial condition of NO
+%y(1:2,1) = 0.1276; %6000PPM AT 300 %y(1:2,1) = 0.319*C(end,1) 4000 ~ 6000 ppm;
+%A1_NO = 0.0638*3;%9000ppm
+%A2_NO = 0.0638*2;%6000ppm
+%A3_NO = 0.0638;%3000ppm
+%A4_NO = 0.00001;%9000ppm
+%A5_NO = 0.0638*3;%6000ppm
+%A6_NO = 0.0638*2;%3000ppm
+%A7_NO = 0.0638*1;%9000ppm
+%A8_NO = 0.0638*3;%6000ppm
+%A9_NO = 0.0638*2;%3000ppm
+
+S = 1;
+
+
+
+ %t1_NO= 1200;
+ %t2_NO = 1400;
+ %t3_NO = 1600;
+ %t4_NO = 1800;
+ %t5_NO = 2000;
+ %t6_NO = 2200;
+ %t7_NO = 2400;
+ %t8_NO = 2600;
+
+%y(1:2,1) = ((A1_NO-A2_NO)/(1+exp(S*(t-1200)))+A2_NO)*(999<=t&&t<t1_NO)+((A2_NO-A3_NO)/(1+exp(S*(t-1400)))+A3_NO)*(t1_NO<=t&&t<t2_NO)+((A3_NO-A4_NO)/(1+exp(S*(t-1600)))+A4_NO)*(t2_NO<=t&&t<t3_NO)+...
+ %((A4_NO-A5_NO)/(1+exp(S*(t-1800)))+A5_NO)*(t3_NO<=t&&t<t4_NO)+((A5_NO-A6_NO)/(1+exp(S*(t-2000)))+A6_NO)*(t4_NO<=t&&t<t5_NO)+((A6_NO-A7_NO)/(1+exp(S*(t-2200)))+A7_NO)*(t5_NO<=t&&t<t6_NO)+...
+% ((A7_NO-A8_NO)/(1+exp(S*(t-2400)))+A8_NO)*(t6_NO<=t&&t<t7_NO)+((A8_NO-A9_NO)/(1+exp(S*(t-2600)))+A3_NO)*(t7_NO<=t&&t<t8_NO);%initial condition of NO
+
+
+% A1 = 0.1276;%6000ppm
+% A2 = 0.0638;%3000ppm
+% A3 = 0.0213; %1000ppm
+% A4 = 0.0106;%500ppm
+% 
+
+
+% S = 1;
+% y(1:2,1) = ((A1-A2)/(1+exp(S*(t-1500)))+A2)*(999<=t&&t<t2)+((A2-A3)/(1+exp(S*(t-2000)))+A3)*(t2<=t&&t<t3)+((A3-A4)/(1+exp(S*(t-2500)))+A4)*(t3<=t&&t<t4);%initial condition of NO
+% y(1:2,1) = A1*(0<=t&&t<t1)+A2*(t1<=t&&t<t2)+A3*(t2<=t&&t<t3)+A4*(t3<=t&&t<t4) %initial condition of NO
+% y(3:end,1) = 0.000001;
+
+ t1_CO = 1500; 
+ t2_CO = 2000;
+ t3_CO = 2500;
+ t4_CO = 3000;
+ t5_CO = 3500;
+ t6_CO = 4000;
+ t7_CO = 4500;
+ t8_CO = 5000;
+
+% A1_CO = 0.426;		
+% A2_CO = 0.426;		
+% A3_CO = 0.426;		
+% A4_CO = 0.37275;		
+% A5_CO = 0.37275;		
+% A6_CO = 0.37275;		
+% A7_CO = 0.3195;		
+% A8_CO = 0.3195;		
+% A9_CO = 0.3195;	
+
+A1_CO = 1*y(1:2,1);		
+A2_CO = 1*y(1:2,1);		
+A3_CO = 1*y(1:2,1);		
+A4_CO = 1*y(1:2,1);		
+A5_CO = 1*y(1:2,1);		
+A6_CO = 1*y(1:2,1);		
+A7_CO = 1*y(1:2,1);		
+A8_CO = 1*y(1:2,1);		
+A9_CO = 1*y(1:2,1);	
+
+%y(1:2,2) = 1*y(1:2,1);%initial condition of CO
+y(1:2,2) = ((A1_CO-A2_CO)/(1+exp(S*(t-t1_CO)))+A2_CO)*(999<=t&&t<t1_CO)+...
+((A2_CO-A3_CO)/(1+exp(S*(t-t2_CO)))+A3_CO)*(t1_CO<=t&&t<t2_CO)+...
+((A3_CO-A4_CO)/(1+exp(S*(t-t3_CO)))+A4_CO)*(t2_CO<=t&&t<t3_CO)+...
+((A4_CO-A5_CO)/(1+exp(S*(t-t4_CO)))+A5_CO)*(t3_CO<=t&&t<t4_CO)+...
+((A5_CO-A6_CO)/(1+exp(S*(t-t5_CO)))+A6_CO)*(t4_CO<=t&&t<t5_CO)+...
+((A6_CO-A7_CO)/(1+exp(S*(t-t6_CO)))+A7_CO)*(t5_CO<=t&&t<t6_CO)+...
+((A7_CO-A8_CO)/(1+exp(S*(t-t7_CO)))+A8_CO)*(t6_CO<=t&&t<t7_CO)+...
+((A8_CO-A9_CO)/(1+exp(S*(t-t8_CO)))+A9_CO)*(t7_CO<=t&&t<t8_CO);  % CO 초기 조건 설정
+
+y(3:end,2) = 0.0000001;
+
+A1_H2O = 1.5*y(1:2,1);
+A2_H2O = 1.5*y(1:2,1);
+A3_H2O = 1.5*y(1:2,1);
+A4_H2O = 1.5*y(1:2,1);
+A5_H2O = 1.5*y(1:2,1);
+A6_H2O = 1.5*y(1:2,1);
+A7_H2O = 1.5*y(1:2,1);
+A8_H2O = 1.5*y(1:2,1);
+A9_H2O = 1.5*y(1:2,1);
+
+%y(1:2,3) = 1.5*y(1:2,1);%initial condition of water
+y(1:2,3) = ((A1_H2O-A2_H2O)/(1+exp(S*(t-t1_CO)))+A2_H2O)*(999<=t&&t<t1_CO)+...
+((A2_H2O-A3_H2O)/(1+exp(S*(t-t2_CO)))+A3_H2O)*(t1_CO<=t&&t<t2_CO)+...
+((A3_H2O-A4_H2O)/(1+exp(S*(t-t3_CO)))+A4_H2O)*(t2_CO<=t&&t<t3_CO)+...
+((A4_H2O-A5_H2O)/(1+exp(S*(t-t4_CO)))+A5_H2O)*(t3_CO<=t&&t<t4_CO)+...
+((A5_H2O-A6_H2O)/(1+exp(S*(t-t5_CO)))+A6_H2O)*(t4_CO<=t&&t<t5_CO)+...
+((A6_H2O-A7_H2O)/(1+exp(S*(t-t6_CO)))+A7_H2O)*(t5_CO<=t&&t<t6_CO)+...
+((A7_H2O-A8_H2O)/(1+exp(S*(t-t7_CO)))+A8_H2O)*(t6_CO<=t&&t<t7_CO)+...
+((A8_H2O-A9_H2O)/(1+exp(S*(t-t8_CO)))+A9_H2O)*(t7_CO<=t&&t<t8_CO);  % H2O 초기 조건 설정
+
+y(3:end,3) = 0.01;
+
+y(:,4) = 0.0001;%initial condition of ammonia
+
+y(:,5) = 0.000001;%initial condition of CO2
+
+% A1_H2 = 0.426*2;		
+% A2_H2 = 0.426*2;		
+% A3_H2 = 0.426*2;		
+% A4_H2 = 0.37275*2;		
+% A5_H2 = 0.37275*2;		
+% A6_H2 = 0.37275*2;		
+% A7_H2 = 0.37275*2;		
+% A8_H2 = 0.37275*2;		
+% A9_H2 = 0.37275*2;	
+
+
+A1_H2 = 2*y(1:2,1);		
+A2_H2 = 2*y(1:2,1);		
+A3_H2 = 2*y(1:2,1);		
+A4_H2 = 2*y(1:2,1);		
+A5_H2 = 2*y(1:2,1);		
+A6_H2 = 2*y(1:2,1);		
+A7_H2 = 2*y(1:2,1);		
+A8_H2 = 2*y(1:2,1);		
+A9_H2 = 2*y(1:2,1);
+
+%y(1:2,6) = 0.00001*y(1:2,1);%initial condition of H2
+y(1:2,6) =((A1_H2-A2_H2)/(1+exp(S*(t-t1_CO)))+A2_H2)*(999<=t&&t<t1_CO)+...
+((A2_H2-A3_H2)/(1+exp(S*(t-t2_CO)))+A3_H2)*(t1_CO<=t&&t<t2_CO)+...
+((A3_H2-A4_H2)/(1+exp(S*(t-t3_CO)))+A4_H2)*(t2_CO<=t&&t<t3_CO)+...
+((A4_H2-A5_H2)/(1+exp(S*(t-t4_CO)))+A5_H2)*(t3_CO<=t&&t<t4_CO)+...
+((A5_H2-A6_H2)/(1+exp(S*(t-t5_CO)))+A6_H2)*(t4_CO<=t&&t<t5_CO)+...
+((A6_H2-A7_H2)/(1+exp(S*(t-t6_CO)))+A7_H2)*(t5_CO<=t&&t<t6_CO)+...
+((A7_H2-A8_H2)/(1+exp(S*(t-t7_CO)))+A8_H2)*(t6_CO<=t&&t<t7_CO)+...
+((A8_H2-A9_H2)/(1+exp(S*(t-t8_CO)))+A9_H2)*(t7_CO<=t&&t<t8_CO);  % H2 초기 조건 설정
+
+y(3:end,6) = 0.00001;    
+
+y(:,7) = 0.000001; %initial condition of N2
+
+%A1=0.6;
+%A2=0.5;
+%t1=;
+%t2=;
+%y(1:2,1) = A1*(0<=t&&t<t1)+A2*(t1<=t&&t<t2)+A3;%initial condition of NO
+%y(3:end,1) = 0.01;
+
+end
