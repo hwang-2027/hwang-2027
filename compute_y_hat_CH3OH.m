@@ -1,5 +1,5 @@
 function yHat = compute_y_hat_CH3OH(X, r)
-%COMPUTE_Y_HAT 入力変数X(データ数×変数の数)、パラメーターr(パラメーター数)
+%COMPUTE_Y_HAT 蜈･蜉帛､画焚X(繝�繝ｼ繧ｿ謨ｰﾃ怜､画焚縺ｮ謨ｰ)縲√ヱ繝ｩ繝｡繝ｼ繧ｿ繝ｼr(繝代Λ繝｡繝ｼ繧ｿ繝ｼ謨ｰ)
 %   y_hat is model-predicted Y value
 
 %yHat = zeros(size(X, 2), 1);
