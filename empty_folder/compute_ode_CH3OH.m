@@ -1,6 +1,6 @@
 function C_p_avg = calc_C_p_CH3OH(T)
-%CALC_C_P_AVG Še¬•ª‚Ì”M—e—ÊC_p[J/K/mol]‚Ì•½‹Ï‚ÌŒvZ
-%   Ú×à–¾‚ğ‚±‚±‚É‹Lq
+%CALC_C_P_AVG å„æˆåˆ†ã®ç†±å®¹é‡C_p[J/K/mol]ã®å¹³å‡ã®è¨ˆç®—
+%   è©³ç´°èª¬æ˜ã‚’ã“ã“ã«è¨˜è¿°
 global cp_params_H2  cp_params_CO cp_params_CO2  cp_params_CH3OH cp_params_H2O P_t %cp_params_CH3OH
 global p_H2  p_CO p_CO2 p_H2O p_CH3OH %p_CH3OH
 
